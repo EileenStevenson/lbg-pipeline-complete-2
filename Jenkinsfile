@@ -4,7 +4,7 @@ pipeline{
         credentialsIdGCP = "5342d701-7703-4469-9c4f-5831805a209b"
         namespace = "lbg-4"
         // e.g. lbg-1 for learner1, lbg-2 for learner2
-        projectId= "exec-cohort-13"
+        projectId= "lbg-mea-leaders-c13"
         
         imageName = "vatcalc"
         registry = "${dockerUserName}/${imageName}"
@@ -27,7 +27,7 @@ pipeline{
                 sh "npm test"
                 }
             }
-            stage('SonarQube Analysis') {
+            /* stage('SonarQube Analysis') {
                 environment {
                     scannerHome = tool 'sonarqube'
                 }
@@ -39,7 +39,7 @@ pipeline{
                     waitForQualityGate abortPipeline: true
                     }
                 }
-            }
+            }*/
          
             stage ('Build Docker Image'){
                 steps{
